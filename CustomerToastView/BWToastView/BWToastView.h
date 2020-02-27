@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (instancetype)initWithFrame:(CGRect)frame isPlainText:(BOOL)isPlainText;
 
-
+- (void)show;
 
 
 @end

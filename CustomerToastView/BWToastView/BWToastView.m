@@ -33,22 +33,12 @@
         self.imgName = @"tip";
         self.toastString = @"有什么要提示的么？有什么问题么？";
         self.isPlainText = isPlainText;
-//        self.backgroundColor = [UIColor.blackColor colorWithAlphaComponent:.1];
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:1.5f target:self selector:@selector(removeTimer) userInfo:nil repeats:NO];
-        [self loadSubViews];
+        self.backgroundColor = [UIColor.blackColor colorWithAlphaComponent:.1];
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:1.2f target:self selector:@selector(removeTimer) userInfo:nil repeats:NO];
     }
     return self;
 }
 
-- (void)loadSubViews
-{
-    if (self.isPlainText) {
-        [self addSubview:self.tipLabel];
-    } else {
-        [self addSubview:self.tipImgView];
-        [self addSubview:self.tipLabel];
-    }
-}
 
 - (void)layoutSubviews
 {
@@ -73,7 +63,16 @@
 }
 
 
-
+- (void)show
+{
+    [[UIApplication sharedApplication].keyWindow addSubview:self];
+     if (self.isPlainText) {
+           [self addSubview:self.tipLabel];
+       } else {
+           [self addSubview:self.tipImgView];
+           [self addSubview:self.tipLabel];
+       }
+}
 
 
 
